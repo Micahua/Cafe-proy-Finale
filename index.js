@@ -16,7 +16,7 @@ app.get("/ping", (req, res) => {
 app.use("/api", productsRoutes);
 
 app.use((req, res) => {
-    res.status(404).json({ error: "Not Found" });
+    res.status(404).json({ error: "Not Found - Levanta" });
 });
 
 const PORT = process.env.PORT || 3000;
