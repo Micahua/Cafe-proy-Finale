@@ -11,8 +11,8 @@ app.use("/api", authRoutes);
 app.use("/api", productsRoutes);
 
 
-app.get("/products", (req, res) => {
-    res.json(products);
+app.get("/", (req, res) => {
+    res.send("Bienvenidos !! APP CAFE PROY FINALE");
 });
 
 
