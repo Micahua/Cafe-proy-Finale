@@ -20,22 +20,22 @@ export const getById = async (req, res) => {
         }
 
         res.json(product);
-
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 };
 
 
+
 export const create = async (req, res) => {
     try {
-        const { name, price, categories = [] } = req.body;
+        const { name, price = [] } = req.body;
 
         if (!name) {
             return res.status(422).json({ error: "El Nombre es Obligatorio" });
         }
 
-        const product = await model.create({ name, price, categories });
+        const product = await model.create({ name, price });
         res.status(201).json(product);
     } catch (err) {
         res.status(500).json({ error: err.message });

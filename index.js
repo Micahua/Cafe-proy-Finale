@@ -8,15 +8,22 @@ const app = express();
 app.use(express.json());
 
 app.use("/api", authRoutes);
-
-app.get("/ping", (req, res) => {
-    res.json({ pong: true });
-});
-
 app.use("/api", productsRoutes);
 
+
+app.get("/products", (req, res) => {
+    res.json(products);
+});
+
+
 app.use((req, res) => {
-    res.status(404).json({ error: "Not Found - Levanta" });
+    //  res.status(404).json({ error: "Not Found" });
+    res.status(404).json({
+        error: "Ruta no encontrada",
+        method: req.method,
+    });
+
+
 });
 
 const PORT = process.env.PORT || 3000;
